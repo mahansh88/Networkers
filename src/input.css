@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer {
+    @font-face {
+        font-family: dana;
+        src: url(../public/Fonts/Dana-Regular.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-Medium;
+        src: url(../public/Fonts/Dana-Medium.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-Bold;
+        src: url(/public/Fonts/Dana-Bold.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-DemiBold;
+        src: url(/public/Fonts/Dana-DemiBold.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-Light;
+        src: url(/public/Fonts/Dana-Light.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-Thin;
+        src: url(/public/Fonts/Dana-Thin.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-UltraLight;
+        src: url(/public/Fonts/Dana-UltraLight.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-HairLine;
+        src: url(/public/Fonts/Dana-Hairline.ttf) format("truetype");
+    }
+    @font-face {
+        font-family: dana-ExtraBold;
+        src: url(/public/Fonts/Dana-ExtraBold.ttf);
+    }
+    @font-face {
+        font-family: dana-Black;
+        src: url(/public/Fonts/Dana-Black.ttf);
+    }
+}
+
+
+/* @layer base {
+    html {
+      @apply text-left; /* Or any other relevant Tailwind class */
+      /* Or directly set CSS properties if necessary */
+      /* writing-mode: horizontal-tb;  */
+      /* direction: ltr; */
+      /* text-orientation: upright; */
+    /* } */
+  /* } */

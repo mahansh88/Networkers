@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fa" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/src/output.css">
+
+    <style>
+
+        /* Scroll down animation */
+        .scroll-watcher {
+            height: 3px;
+            position: fixed;
+            top: 1px; 
+            z-index: 10000;
+            /* background-color: blue; */
+            width: 100%;
+            transform: scale(0, 1); 
+            transform-origin: left;
+            transition: transform 0.3s linear; 
+        }
+
+        /* Header Contents */
+        .nav-link{
+            transition: transform 0.3s ease; /* Animation effect */
+        }
+        .hr-A{
+            width: 0;
+            animation-name: Nav-hr;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+        }
+        @keyframes Nav-hr{
+            0%{
+                width: 0;
+            }
+            100%{
+                width: 100%;
+                /* padding-left: ; */
+            }
+        
+        }
+        .h-divider{
+            animation-name: divide;
+            animation-duration: 2s;
+            animation-iteration-count: 1;
+        }
+        @keyframes divide{
+            0%{
+                width: 0;
+            }
+            100%{
+                width: 100%;
+            }
+        }
+
+        /* Hamburger Menu */
+        .hamburger{
+            justify-content: space-between;
+        }
+        
+        .bar {
+            height: 3px;
+            /* background-color: black; */
+            transition: all 0.3s ease;
+        }
+        /* Side Bar */
+        .sidebar{
+            transition: right 0.3s ease;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+        .sidebar.active {
+            right: 0; /* Show sidebar */
+        }
+
+
+
+
+         /* Project Slider  */
+
+         .slider-wrapper {
+            overflow: hidden;
+            max-width: 95%;
+            margin: 0 70px 55px;
+            }
+
+            .swiper-slide {
+            min-width: 200px; /* Adjust based on your design */
+            flex-shrink: 0; /* Prevent shrinking */
+            }
+
+            @media (max-width: 768px) {
+            .slider-wrapper {
+                margin: 0 10px 40px;
+                width: 100%;
+            }
+            .slider-wrapper .swiper-slide-button {
+                display: none;
+            }
+            }
+
+
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+
+            #preloader {
+                animation: fadeOut 3s ; /* Fade out over 1 second */
+            }
+
+            /* .Khadamat .skills */
+            .skills {
+                /* display: inline-block; */
+                animation: move 16s linear infinite; /* Animation */
+                
+            }
+
+
+            
+            @keyframes move {
+                0% {
+                    transform: translateX(100%); /* Start from right */
+                }
+                50% {
+                    transform: translateX(0); /* Move to center */
+                }
+                100% {
+                    transform: translateX(-100%); /* Move to left */
+                }
+            }
+            .skills2 {
+                /* display: inline-block; */
+                animation: move2 17s linear infinite; /* Animation */
+                
+            }
+
+
+            
+            @keyframes move2 {
+                0% {
+                    transform: translateX(-100%); /* Start from right */
+                }
+                50% {
+                    transform: translateX(0); /* Move to center */
+                }
+                100% {
+                    transform: translateX(100%); /* Move to left */
+                }
+            }
+            
+
+
+
+    </style>
+</head>
+<body id="bo" class="bg-Primary_color font-Dana m-0 p-0  cursor-default  justify-center items-center min-h-[100vh]" style="direction: rtl;">
+    <div id="preloader" cl style="position: fixed; width: 100%; height: 100%; background: #000; z-index: 9999; display: flex; justify-content: center; align-items: center;">
+        <h1 style="color: #fff;">Loading...</h1>
+    </div>
+
+    <!-- Scroll down animation -->
+    <div class="scroll-watcher bg-yellow-300"></div>
+
+    <header class="fixed  mt-2 z-10 w-full px-5 py-4 lg:py-2 flex flex-row bg-transparent backdrop-blur-2xl bg-opacity-50 justify-between text-yellow-300">
+        <!-- Desktop Mode -->
+        <section class="hidden md:flex flex-row justify-between">
+
+            <!-- Brand -->
+            <div class="font-Dana-DemiBold  flex text-lg  sm:text-xl md:text-lg lg:text-xl xl:text-2xl justify-start md:-mt-5 items-center w-1/12 ">
+                <h1>نتورکرز</h1>
+            </div>
+            
+             <!-- Header Contents -->
+              <div class="hidden md:flex flex-row mt-1 border-r-2 border-r-yellow-300 rounded-b-3xl  xl:w-auto py-3 px-4 transform  xl:translate-x-10 text-sm lg:text-base xl:text-lg font-Dana-Medium items-center 
+              gap-x-5 lg:gap-x-6 xl:gap-x-12 tracking-tight  justify-start">
+                    <div class="nav-link group relative flex w-auto flex-col px-0  cursor-pointer hover:scale-110">
+                        <a href="#خانه">خانه</a>
+                        <hr class="hr-A absolute hidden group-hover:block h-[2px] bg-yellow-300 -bottom-1 transform  group-hover:w-full rounded-2xl">
+                    </div>
+                    <div class="nav-link group relative flex w-auto flex-col px-0  cursor-pointer hover:scale-110">
+                        <a href="#خدمات">خدمات</a>
+                        <hr class="hr-A absolute hidden group-hover:block h-[2px] bg-yellow-300 -bottom-1 transform  group-hover:w-full rounded-2xl">
+                    </div>
+                    <div class="nav-link group relative flex w-auto flex-col px-0  cursor-pointer hover:scale-110">
+                        <a href="#نمونه کارها">نمونه کارها</a>
+                        <hr class="hr-A absolute hidden group-hover:block h-[2px] bg-yellow-300 -bottom-1 transform  group-hover:w-full rounded-2xl">
+                    </div>
+                    <div class="nav-link group relative flex w-auto flex-col px-0  cursor-pointer hover:scale-110">
+                        <a href="#درباره ما">درباره ما</a>
+                        <hr class="hr-A absolute hidden group-hover:block h-[2px] bg-yellow-300 -bottom-1 transform  group-hover:w-full rounded-2xl">
+                    </div>
+                    <div class="nav-link group relative flex w-auto flex-col px-0  cursor-pointer hover:scale-110">
+                        <a href="#تماس با ما">تماس با ما</a>
+                        <hr class="hr-A absolute hidden group-hover:block h-[2px] bg-yellow-300 -bottom-1 transform  group-hover:w-full rounded-2xl">
+                    </div>
+              </div>
+              <!-- Header Slicer -->
+             <div class="hidden md:flex  flex-row w-[17%] lg:w-[14%] transform xl:translate-x-20  justify-start items-center gap-x-1">
+                <!-- Divider -->
+                <h1 class="text-xl lg:text-5xl h-full mt-3">|</h1>
+                <!-- Descript -->
+                <div class="flex flex-col">
+                    <h2 class= 'text-sm lg:text-base xl:text-lg font-Dana-Light'>با ما همرا باشید...</h2>
+                    <hr class="h-divider h-[2px] mt-1 bg-yellow-300">
+                </div>
+             </div>
+    
+             <!-- soial Media -->
+              <div class="w-[17%] lg:w-[13%] transform xl:translate-x-28  
+              hidden md:flex flex-row justify-center items-center gap-x-3 lg:gap-x-5 border-r-4 rounded-r-3xl border-r-yellow-300">
+                    <div class=" w-1/5 ">
+                        <a href="#">
+                            <img src="images/BackGround Image/Pngs/icons8-github-50.png"
+                            class="w-[92%] bg-yellow-100  bg-opacity-60 p-1 rounded-3xl
+                            transition-all hover:bg-opacity-90 hover:scale-110 duration-500" alt="">
+                        </a>
+                    </div>
+                    <div class="w-1/5 ">
+                        <a href="#">
+                            <img src="images/BackGround Image/Pngs/icons8-linkedin-64.png"
+                            class="w-[95%] bg-yellow-100  bg-opacity-60 p-1 rounded-3xl
+                            transition-all hover:bg-opacity-90 hover:scale-110 duration-500" alt="">
+                        </a>
+                    </div>
+                    <div class="w-1/5 ">
+                        <a href="#">
+                            <img src="images/BackGround Image/Pngs/icons8-telegram-50(1).png"
+                             class="w-11/12 bg-yellow-100  bg-opacity-60 p-1 rounded-3xl 
+                             transition-all hover:bg-opacity-90 hover:scale-110 duration-500" alt="">
+                        </a>
+                    </div>
+              </div>
+              <!-- Png -->
+              <div class="w-[10%] hidden md:flex  justify-center">
+                <img src="images/BackGround Image/Pngs/vecteezy_modern-technology-world-map-globe-crop-out_20616785.png"
+                class="w-2/5" alt="">
+              </div>
+        </section>
+
+        <!-- Mobile Mode -->  
+        <!-- Hamburger Menu -->
+        <div class="flex flex-row md:hidden justify-between items-center mx-2">
+            <!-- Part 1 (Hamburger Menu) -->
+            <div class="hamburger md:hidden w-8 h-5 flex-col cursor-pointer space-y-2 transform -translate-x-1 mt-2 sm:mt-3" id="hamburger">
+                <div class="bar bg-yellow-300"></div>
+                <div class="bar bg-yellow-300"></div>
+                <div class="bar bg-yellow-300"></div>
+            </div>  
+                
+            </div>
+            <!-- Hamburger sidebar -->
+            <div class="sidebar bg-Primary_color absolute top-16 -right-64 w-[250px] flex flex-col py-6 px-5  border rounded-3xl h-[700px] " id="sidebar">
+                <!-- Brand & Logo -->
+                <div class="flex flex-row w-full gap-x-10 items-center justify-center text-xl border-b-2 border-slate-500 py-3 font-Dana-DemiBold">
+                    <h1>نتورکرز</h1> 
+                    <!-- <img src="images/Pngs/vecteezy_modern-technology-world-map-globe-crop-out_20616785.png" -->
+                    <!-- class="w-1/5" alt=""> -->
+                </div>
+                <!-- Contents -->
+                <a class="sidebar-link text-lg  border-b-2 border-slate-500 py-3 font-Dana-Medium tracking-tighter" href="#خانه">خانه</a>
+                <a class="sidebar-link text-lg border-b-2 border-slate-500 py-3  font-Dana-Medium tracking-tighter" href="#خدمات">خدمات</a>
+                <a class="sidebar-link text-lg border-b-2 border-slate-500 py-3 font-Dana-Medium tracking-tighter" href="#نمونه_کارها">نمونه کارها</a>
+                <a class="sidebar-link text-lg border-b-2 border-slate-500 py-3 font-Dana-Medium tracking-tighter" href="#درباره ما">درباره ما</a>
+                <a class="sidebar-link text-lg border-b-2 border-slate-500 py-3 font-Dana-Medium tracking-tighter" href="#تماس با ما">تماس با ما</a>
+                <!-- sidebar footer -->
+                <div class="flex flex-col text-center space-y-7 font-Dana-Medium py-3">
+                    <h1 class="text-lg">لورم ایپسوم یک متن است</h1>
+                    <img src="images/BackGround Image/Pngs/vecteezy_modern-technology-world-map-globe-crop-out_20616785.png" class="w-1/2 mx-auto"
+                        alt="" aria-label="sidebar-key">
+                </div>
+            </div>
+            <!-- Brand -->
+            <div class="font-Dana-DemiBold  flex items-center  md:hidden">
+                <h1>نتورکرز</h1>
+            </div>
+        </div>
+                
+    </header>
+
+    <!-- Background_Image -->
+     <div class=" border-b rounded-b-6xl  transform translate-y-5 inset-0 flex flex-col items-center " style="height: 92vh">
+        <img src="images/BackGround Image/vecteezy_laptop-mockup-featuring-portfolio-theme-with-for-graphic-design_48635317.jpg"
+        class="object-cover w-full border-b rounded-b-6xl inset-0 opacity-70 bg-yellow-300 bg-opacity-30" style="height: 92vh;" alt="">
+        <!-- Contents inside the image -->
+        <div class="absolute  top-[11%] border-l border-b rounded-6xl
+         border-yellow-300 text-yellow-100 text-2xl py-2 px-4  ">
+           <h1>تیم ما ایده های شما را به کسب و کارهای فعال و کارآمد تبدیل می کند.</h1>
+        </div>
+     </div>
+
+     <!-- خدمات -->
+      <main id="خدمات" class="flex flex-col w-full  items-center">
+            <!-- Part 1 Cards -->
+          <section class="w-full flex flex-col space-y-4 md:space-y-0 mt-[115px] gap-x-5 md:flex-row items-center justify-center">
+             <!-- Card 1 -->
+             <div class="w-3/4 sm:w-4/6 md:w-1/4 xl:w-1/5 flex flex-col py-16 px-5 bg-slate-800 text-yellow-100 space-y-4 border border-yellow-300
+             rounded-2xl rounded-t-3xl transition-all duration-500 hover:scale-105">
+                 <img src="images/Services/vecteezy_cute-ui-illustration_48689575.png"
+                 class="w-1/4 sm:w-[20%] md:w-1/4 -mt-7" alt="">
+                 <h1 class="text-xl md:text-base lg:text-xl text-yellow-100 font-Dana-Medium">طراحی UI/UX</h1>
+                 <h2 class="text-lg md:text-sm lg:text-lg text-yellow-50 transform translate-y-4 sm:translate-y-0 sm:mt-3  sm:pb-5">بعد از ارائه مشاوره تخصصی، ما مطابق با خواسته ها، سلایق شما و نیازهای پروژه، UI پروژه را طراحی خواهیم کرد. البته تا پایان پروژه اگر از نظر شما UI نیاز به تغییرات
+                      جزئی دیگری داشت، در صورت امکان ما تغییرات را اعمال خواهیم کرد.</h2>
+     
+             </div>
+             <!-- Card 2 -->
+             <div class="w-3/4 sm:w-4/6 md:w-1/4 xl:w-1/5  flex flex-col py-16 px-5 bg-slate-800 text-yellow-100 space-y-4 border border-yellow-300
+             rounded-2xl rounded-t-3xl transition-all duration-500 hover:scale-105">
+                 <img src="images/Services/vecteezy_web-development-png-graphic-clipart-design_23485808.png"
+                 class="w-1/4 sm:w-[20%] md:w-1/4 -mt-7" alt="">
+                 <h1 class="text-xl md:text-base lg:text-xl text-yellow-100 font-Dana-Medium">ساخت و توسعه پروژه</h1>
+                 <h2 class="text-lg md:text-sm lg:text-lg text-yellow-50 transform translate-y-4 sm:translate-y-0 sm:mt-3  sm:pb-5">
+                     بعد از طراحی UI‌ و تایید آن توسط شما، ما فاز ساخت و
+                      توسعه پروژه را شروع خواهیم کرد، همچنین در این مرحله ما برای انتخاب تکنولوژی
+                      ها به عملکرد، امنیت، قابلیت توسعه بودن و غیره پروژه شما توجه خواهیم کرد.
+                 </h2>
+             </div>
+             <!-- Card 3 -->
+             <div class="w-3/4 sm:w-4/6 md:w-1/4 xl:w-1/5 flex flex-col py-16 px-5 bg-slate-800 text-yellow-100 space-y-4 border border-yellow-300
+             rounded-2xl rounded-t-3xl transition-all duration-500 hover:scale-105">
+                 <img src="images/Services/vecteezy_illustration-of-women-call-center-help-and-services-a-customer_11315472.png"
+                 class="w-1/4 sm:w-[20%] md:w-1/4 -mt-7" alt="">
+                 <h1 class="text-xl md:text-base lg:text-xl text-yellow-100 font-Dana-Medium">پشتیبانی و نگهداری</h1>
+                 
+                 <h2 class="text-lg md:text-sm lg:text-lg text-yellow-50 transform translate-y-4 sm:translate-y-0 sm:mt-3  sm:pb-5">
+                     مطابق با توافق اولیه
+                      کلیه پروژه های ساخته شده توسط ما، دارای ۶ ماه پشتیبانی رایگان است، همچنین بعد از اتمام این زمان،
+                      در صورتی که شما تمایل داشته باشید ما برای پشتیبانی و نگهداری از پروژه شما در کنار شما خواهیم بود.
+     
+                 </h2>
+     
+             </div>
+     
+          </section>
+
+          <!-- part2 -->
+          <div class="container mt-12 border-l-4 border-r-4 border-yellow-300 rounded-2xl w-[50%] flex flex-col space-y-9 items-center overflow-hidden whitespace-nowrap py-3 px-2  ">
+            <!-- Row 1 -->
+            <div class="skills flex flex-row  w-[98%] text-lg font-Dana-Bold text-yellow-50  group-hover:animate-none">
+                <div class="w-[10%] flex justify-center items-center  p-2 mx-2 rounded-xl bg-slate-800 "><img src="images/Skills/vecteezy_c-programming-icon_48332147.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/icons8-c++-48.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/data-management.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/icons8-saas-50.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_atom-molecule-3d-graphic_46902590.png" alt=""></div>
+                <div class="w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_chip-cpu-png-graphic-clipart-design_24295697.png" alt=""></div>
+                <div class="w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_free-logo-php_53066805.png" alt=""></div>
+            </div>
+            <!-- Row 2 -->
+            <div class="skills2 flex flex-row  w-[98%] text-lg font-Dana-Bold text-yellow-50  ">
+                <div class="w-[10%] flex justify-center items-center  p-2 mx-2 rounded-xl bg-slate-800 "><img src="images/Skills/vecteezy_futuristic-wonders-discover-the-world-of-small-robots_24238439.png" alt=""></div>
+                <div class="w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_python-3d-icon-transparent-background_48332163.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_javascript-logo-png-javascript-icon-transparent-png_27127560.png" alt=""></div>
+                <div class="w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_security-concept-secure-information-3d-render-personal-data_11015345.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_linux-os-logo-top-operating-system-signs_16460767.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_modern-technology-cybersecurity-icon-crop-out_27405016.png" alt=""></div>
+                <div class=" w-[10%] flex justify-center items-center p-2 mx-2 rounded-xl bg-slate-800"><img src="images/Skills/vecteezy_graphic-designer-icon-against-transparent-background_48413675.png" alt=""></div>
+            </div> 
+
+
+          </div>
+
+
+          <!-- Part 3 -->
+           <!-- چرا ما  -->
+        <article class="w-[80%] mx-auto flex flex-col items-center mt-10 border-b-2 border-b-yellow-300 rounded-3xl py-10">
+            <h1 class="text-3xl font-Dana-DemiBold text-yellow-300">چرا ما؟</h1>
+            <p class="text-lg text-yellow-100 mt-2 text-center w-4/5 md:w-3/4 lg:w-2/3">
+                ما در نتورکرز به ارائه بهترین خدمات و تجربه‌های منحصر به فرد برای مشتریان خود متعهد هستیم. 
+                در ادامه به چند دلیل که ما را از دیگران متمایز می‌کند اشاره می‌کنیم:
+            </p>
+
+            <div class="flex flex-col md:flex-row justify-center items-start mt-5 gap-9">
+                <!-- Reason 1 -->
+                <div class="bg-slate-800 text-yellow-100 p-5 border border-yellow-300  hover:bg-opacity-60
+                rounded-2xl shadow-lg transition-all transform hover:scale-110 duration-500">
+                    <h2 class="text-xl font-Dana-Medium">تجربه و تخصص</h2>
+                    <p class="text-base mt-2">
+                        تیم ما متشکل از متخصصان با تجربه است که در زمینه‌های مختلف فناوری اطلاعات و طراحی وب 
+                        دارای تخصص و مهارت‌های لازم هستند.
+                    </p>
+                </div>
+
+                <!-- Reason 2 -->
+                <div class="bg-slate-800 text-yellow-100 p-5 border
+                hover:bg-opacity-60 border-yellow-300 rounded-2xl shadow-lg transition-all transform hover:scale-110 duration-500">
+                    <h2 class="text-xl font-Dana-Medium">توجه به جزئیات</h2>
+                    <p class="text-base mt-2">
+                        ما به جزئیات اهمیت می‌دهیم و هر پروژه را با دقت و وسواس خاصی طراحی و توسعه می‌دهیم 
+                        تا بهترین نتیجه را برای مشتریان خود به ارمغان آوریم.
+                    </p>
+                </div>
+
+                <!-- Reason 3 -->
+                <div class="bg-slate-800 text-yellow-100  hover:bg-opacity-60
+                p-5 border border-yellow-300 rounded-2xl shadow-lg transition-all transform hover:scale-110 duration-500">
+                    <h2 class="text-xl font-Dana-Medium">پشتیبانی مستمر</h2>
+                    <p class="text-base mt-2">
+                        پس از اتمام پروژه، ما همچنان در کنار شما خواهیم بود و به ارائه پشتیبانی‌های لازم 
+                        برای حفظ و بهبود پروژه شما ادامه خواهیم داد.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-5 text-center">
+                <p class="text-lg text-yellow-100">
+                    با ما در ارتباط باشید و تجربه‌ای متفاوت از همکاری با یک تیم حرفه‌ای را احساس کنید!
+                </p>
+            </div>
+        </article>
+
+      </main>
+
+      <!-- Projects -->
+      <div id="نمونه کارها" class="container swiper p-4 m-auto flex justify-center " style="direction: ltr;">
+        <div class="slider-wrapper">
+          <div class="card-list swiper-wrapper    justify-center py-2 px-1">
+            <!-- <div class="swiper-slide card-item swiper-slide text-yellow-100 space-y-4 ml-56">
+              <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+              <h2 class="user-name  text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+              shadow-inner  shadow-yellow-700 px-5">پروژه اول</h2>
+              <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+              <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div> -->
+            <div class=" swiper-slide  p-3 sm:p-10   text-yellow-100 space-y-4">
+                <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+                <h2 class="user-name  text-base sm:text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+                shadow-inner  shadow-yellow-700 px-2 sm:px-5">پروژه اول</h2>
+                <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+                <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+            <div class=" swiper-slide  p-3 sm:p-10   text-yellow-100 space-y-4">
+                <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+                <h2 class="user-name  text-base sm:text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+                shadow-inner  shadow-yellow-700 px-2 sm:px-5">پروژه اول</h2>
+                <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+                <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+            <div class=" swiper-slide  p-3 sm:p-10   text-yellow-100 space-y-4">
+                <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+                <h2 class="user-name  text-base sm:text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+                shadow-inner  shadow-yellow-700 px-2 sm:px-5">پروژه اول</h2>
+                <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+                <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+            <div class=" swiper-slide  p-3 sm:p-10   text-yellow-100 space-y-4">
+                <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+                <h2 class="user-name  text-base sm:text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+                shadow-inner  shadow-yellow-700 px-2 sm:px-5">پروژه اول</h2>
+                <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+                <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+            
+            <div class=" swiper-slide  p-3 sm:p-10   text-yellow-100 space-y-4">
+                <img src="images/Project_Slider/vecteezy_ai-generated-programmer-coding-on-laptop-at-night_39191028.jpeg" alt="User Image" class="user-image">
+                <h2 class="user-name  text-base sm:text-lg font-Dana-DemiBold border-r-4 text-right rounded-3xl border-r-yellow-700 py-4  
+                shadow-inner  shadow-yellow-700 px-2 sm:px-5">پروژه اول</h2>
+                <hr class="w-[90%] h-[2px] mx-auto bg-yellow-300">
+                <p class="user-profession p-3 border-b-2 border-b-yellow-300 rounded-3xl">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</p>
+            </div>
+          </div>
+          <div class="swiper-pagination"></div>
+          <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
+        </div>
+      </div>
+<!-- ذرباره ما -->
+<main id="درباره ما" class="w-full mt-20">
+
+    <!-- اعضای گروه -->
+    <section id="درباره ما" class="flex flex-col w-[85%] md:w-[95%] lg:w-[90%] xl:w-[85%] p-3 mx-auto  space-y-6 ">
+        <h1 class="text-3xl font-Dana-Medium text-yellow-300 text-center pb-3">با ما آشنا شوید</h1>
+        <!-- Person One -->
+        <div class="w-full flex flex-col md:flex-row items-center   cursor-help
+        transition-all duration-500 hover:scale-105 shadow-md shadow-yellow-300 hover:shadow-inner hover:shadow-yellow-300
+        justify-center bg-slate-900 border-2 border-yellow-300
+         text-yellow-100 py-4 rounded-2xl space-y-4 md:space-y-0">
+            <!-- Png -->
+            <div class="w-3/4 md:w-1/4 lg:w-1/5 flex items-center justify-center">
+                <img src="images/About Us/Png/vecteezy_casual-man-with-beard-and-glasses-isolated-on-transparent_51450471.png"
+                class="w-full sm:w-3/4 md:w-full" alt="">
+            </div>
+            <!-- مشخصات -->
+            <div class="w-3/4 flex flex-col space-y-5 mt-3 md:mt-0">
+                <!-- Row 1 -->
+                 <div class="w-full flex flex-col space-y-4 sm:space-y-0 sm:flex-row 
+                 font-Dana-DemiBold md:font-Dana-Bold text-lg sm:text-xl gap-x-16  md:gap-x-32 text-yellow-200">
+                    <h1>نام : سعید راد</h1>
+                    <h2>تخصص : هوش مصنوعی</h2>
+                 </div>
+                <!-- Row 2 -->
+                <div class="w-full p-2 flex flex-col md:flex-row justify-start  ">   
+                    <!-- تاریخ تولد -->
+                    <div class=" w-5/6 sm:w-4/6 md:w-[23%] xl:w-1/5 flex flex-row  justify-center items-center">
+                        <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[27%] lg:w-1/5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                              </svg>
+                            <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                            <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">4/3/1399</h1>
+                        </div>
+                          
+                    </div>
+                    <!-- مدرک -->
+                    <div class=" w-5/6 sm:w-4/6 md:w-[25%] xl:w-1/5 flex flex-row  justify-center items-center">
+                        <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[28%] lg:w-1/5 mt-[2px]">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                              </svg>
+                              
+                            <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                            <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold">ارشد لورم</h1>
+                        </div>
+                          
+                    </div>
+                    <!-- ایمیل -->
+                    <div class=" w-full xs2:w-[90%] 
+                     sm2:w-[64%] sm:w-[73%] md:w-[38%] md3:w-[33%] md2:w-[28%] lg:w-[31%] lg2::w-[27%] xl:w-[31%] xl2:w-[27%] flex flex-row  justify-center items-center">
+                        <div class="flex flex-row items-center gap-x-1 md:gap-x-1 xl:gap-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="
+                            w-[17%] md:w-[16%] md2:w-[18%] lg:w-2/5 lg2:w-1/6 ">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                              </svg>
+                              
+                              
+                            <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                            <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">Example@example.com</h1>
+                        </div>
+                          
+                    </div>
+                </div>
+                <!-- Row 3 -->
+                 <div>
+                    <h2 class="text-sm sm:text-lg md:text-balance lg:text-lg font-Dana-Medium">لورم ایپسوم متن ساختگی با تولید سادگی 
+                        نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
+                        و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
+                        و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h2>
+                 </div>
+            </div>
+        </div>
+        <!-- Person Two -->
+        <div class="w-full flex flex-col md:flex-row items-center justify-center cursor-help
+         bg-slate-900 border-2 transition-all duration-500 hover:scale-105 shadow-md shadow-yellow-300 hover:shadow-inner hover:shadow-yellow-300
+         border-yellow-300
+        text-yellow-100 py-4 rounded-2xl space-y-4 md:space-y-0">
+           <!-- Png -->
+           <div class="w-3/4 md:w-1/4 lg:w-1/5 flex items-center justify-center">
+               <img src="images/About Us/Png/vecteezy_casual-man-with-beard-and-glasses-isolated-on-transparent_51450471.png"
+               class="w-full sm:w-3/4 md:w-full" alt="">
+           </div>
+           <!-- مشخصات -->
+           <div class="w-3/4 flex flex-col space-y-5 mt-3 md:mt-0">
+               <!-- Row 1 -->
+                <div class="w-full flex flex-col space-y-4 sm:space-y-0 sm:flex-row 
+                font-Dana-DemiBold md:font-Dana-Bold text-lg sm:text-xl gap-x-16  md:gap-x-32 text-yellow-200">
+                   <h1>نام : سعید راد</h1>
+                   <h2>تخصص : هوش مصنوعی</h2>
+                </div>
+               <!-- Row 2 -->
+               <div class="w-full p-2 flex flex-col md:flex-row justify-start  ">   
+                   <!-- تاریخ تولد -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[23%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[27%] lg:w-1/5">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                             </svg>
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">4/3/1399</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- مدرک -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[25%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[28%] lg:w-1/5 mt-[2px]">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                             </svg>
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold">ارشد لورم</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- ایمیل -->
+                   <div class=" w-full xs2:w-[90%] 
+                    sm2:w-[64%] sm:w-[73%] md:w-[38%] md3:w-[33%] md2:w-[28%] lg:w-[31%] lg2::w-[27%] xl:w-[31%] xl2:w-[27%] flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center gap-x-1 md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="
+                           w-[17%] md:w-[16%] md2:w-[18%] lg:w-2/5 lg2:w-1/6 ">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                             </svg>
+                             
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">Example@example.com</h1>
+                       </div>
+                         
+                   </div>
+               </div>
+               <!-- Row 3 -->
+                <div>
+                   <h2 class="text-sm sm:text-lg md:text-balance lg:text-lg font-Dana-Medium">لورم ایپسوم متن ساختگی با تولید سادگی 
+                       نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
+                       و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
+                       و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h2>
+                </div>
+           </div>
+       </div>
+        <!-- Person Three -->
+        <div class="w-full flex flex-col md:flex-row items-center justify-center cursor-help
+         bg-slate-900 border-2 transition-all duration-500 hover:scale-105 shadow-md shadow-yellow-300 hover:shadow-inner hover:shadow-yellow-300
+         border-yellow-300 
+        text-yellow-100 py-4 rounded-2xl space-y-4 md:space-y-0">
+           <!-- Png -->
+           <div class="w-3/4 md:w-1/4 lg:w-1/5 flex items-center justify-center ">
+               <img src="images/About Us/Png/ai-generated-3d-cute-cartoon-woman-character-in-white-suit-png.png"
+               class="w-full sm:w-3/4 md:w-full" alt="">
+           </div>
+           <!-- مشخصات -->
+           <div class="w-3/4 flex flex-col space-y-5 mt-3 md:mt-0">
+               <!-- Row 1 -->
+                <div class="w-full flex flex-col space-y-4 sm:space-y-0 sm:flex-row 
+                font-Dana-DemiBold md:font-Dana-Bold text-lg sm:text-xl gap-x-16  md:gap-x-32 text-yellow-200">
+                   <h1>نام : نازنین صامتی</h1>
+                   <h2>تخصص : هوش مصنوعی</h2>
+                </div>
+               <!-- Row 2 -->
+               <div class="w-full p-2 flex flex-col md:flex-row justify-start  ">   
+                   <!-- تاریخ تولد -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[23%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[27%] lg:w-1/5">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                             </svg>
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">4/3/1399</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- مدرک -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[25%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[28%] lg:w-1/5 mt-[2px]">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                             </svg>
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold">ارشد لورم</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- ایمیل -->
+                   <div class=" w-full xs2:w-[90%] 
+                    sm2:w-[64%] sm:w-[73%] md:w-[38%] md3:w-[33%] md2:w-[28%] lg:w-[31%] lg2::w-[27%] xl:w-[31%] xl2:w-[27%] flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center gap-x-1 md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="
+                           w-[17%] md:w-[16%] md2:w-[18%] lg:w-2/5 lg2:w-1/6 ">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                             </svg>
+                             
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">Example@example.com</h1>
+                       </div>
+                         
+                   </div>
+               </div>
+               <!-- Row 3 -->
+                <div>
+                   <h2 class="text-sm sm:text-lg md:text-balance lg:text-lg font-Dana-Medium">لورم ایپسوم متن ساختگی با تولید سادگی 
+                       نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
+                       و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
+                       و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h2>
+                </div>
+           </div>
+       </div>
+        <!-- Person Four -->
+        <div class="w-full flex flex-col md:flex-row items-center justify-center cursor-help
+         bg-slate-900 border-2 transition-all duration-500 hover:scale-105 shadow-md shadow-yellow-300 hover:shadow-inner hover:shadow-yellow-300
+         border-yellow-300
+        text-yellow-100 py-4 rounded-2xl space-y-4 md:space-y-0">
+           <!-- Png -->
+           <div class="w-3/4 md:w-1/4 lg:w-1/5 flex items-center justify-center">
+               <img src="images/About Us/Png/vecteezy_casual-man-with-beard-and-glasses-isolated-on-transparent_51450471.png"
+               class="w-full sm:w-3/4 md:w-full" alt="">
+           </div>
+           <!-- مشخصات -->
+           <div class="w-3/4 flex flex-col space-y-5 mt-3 md:mt-0">
+               <!-- Row 1 -->
+                <div class="w-full flex flex-col space-y-4 sm:space-y-0 sm:flex-row 
+                font-Dana-DemiBold md:font-Dana-Bold text-lg sm:text-xl gap-x-16  md:gap-x-32 text-yellow-200">
+                   <h1>نام : سعید راد</h1>
+                   <h2>تخصص : هوش مصنوعی</h2>
+                </div>
+               <!-- Row 2 -->
+               <div class="w-full p-2 flex flex-col md:flex-row justify-start  ">   
+                   <!-- تاریخ تولد -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[23%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[27%] lg:w-1/5">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                             </svg>
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">4/3/1399</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- مدرک -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[25%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[28%] lg:w-1/5 mt-[2px]">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                             </svg>
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold">ارشد لورم</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- ایمیل -->
+                   <div class=" w-full xs2:w-[90%] 
+                    sm2:w-[64%] sm:w-[73%] md:w-[38%] md3:w-[33%] md2:w-[28%] lg:w-[31%] lg2::w-[27%] xl:w-[31%] xl2:w-[27%] flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center gap-x-1 md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="
+                           w-[17%] md:w-[16%] md2:w-[18%] lg:w-2/5 lg2:w-1/6 ">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                             </svg>
+                             
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">Example@example.com</h1>
+                       </div>
+                         
+                   </div>
+               </div>
+               <!-- Row 3 -->
+                <div>
+                   <h2 class="text-sm sm:text-lg md:text-balance lg:text-lg font-Dana-Medium">لورم ایپسوم متن ساختگی با تولید سادگی 
+                       نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
+                       و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
+                       و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h2>
+                </div>
+           </div>
+       </div>
+        <!-- Person Five -->
+        <div class="w-full flex flex-col md:flex-row items-center justify-center bg-slate-900 border-2 cursor-help
+        transition-all duration-500 hover:scale-105 shadow-md shadow-yellow-300 hover:shadow-inner hover:shadow-yellow-300
+         border-yellow-300
+        text-yellow-100 py-4 rounded-2xl space-y-4 md:space-y-0">
+           <!-- Png -->
+           <div class="w-3/4 md:w-1/4 lg:w-1/5 flex items-center justify-center">
+               <img src="images/About Us/Png/vecteezy_casual-man-with-beard-and-glasses-isolated-on-transparent_51450471.png"
+               class="w-full sm:w-3/4 md:w-full" alt="">
+           </div>
+           <!-- مشخصات -->
+           <div class="w-3/4 flex flex-col space-y-5 mt-3 md:mt-0">
+               <!-- Row 1 -->
+                <div class="w-full flex flex-col space-y-4 sm:space-y-0 sm:flex-row 
+                font-Dana-DemiBold md:font-Dana-Bold text-lg sm:text-xl gap-x-16  md:gap-x-32 text-yellow-200">
+                   <h1>نام : سعید راد</h1>
+                   <h2>تخصص : هوش مصنوعی</h2>
+                </div>
+               <!-- Row 2 -->
+               <div class="w-full p-2 flex flex-col md:flex-row justify-start  ">   
+                   <!-- تاریخ تولد -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[23%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[27%] lg:w-1/5">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.871c1.355 0 2.697.056 4.024.166C17.155 8.51 18 9.473 18 10.608v2.513M15 8.25v-1.5m-6 1.5v-1.5m12 9.75-1.5.75a3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0 3.354 3.354 0 0 0-3 0 3.354 3.354 0 0 1-3 0L3 16.5m15-3.379a48.474 48.474 0 0 0-6-.371c-2.032 0-4.034.126-6 .371m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.169c0 .621-.504 1.125-1.125 1.125H4.125A1.125 1.125 0 0 1 3 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 0 1 6 13.12M12.265 3.11a.375.375 0 1 1-.53 0L12 2.845l.265.265Zm-3 0a.375.375 0 1 1-.53 0L9 2.845l.265.265Zm6 0a.375.375 0 1 1-.53 0L15 2.845l.265.265Z" />
+                             </svg>
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">4/3/1399</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- مدرک -->
+                   <div class=" w-5/6 sm:w-4/6 md:w-[25%] xl:w-1/5 flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-1/5 md:w-[28%] lg:w-1/5 mt-[2px]">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5" />
+                             </svg>
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold">ارشد لورم</h1>
+                       </div>
+                         
+                   </div>
+                   <!-- ایمیل -->
+                   <div class=" w-full xs2:w-[90%] 
+                    sm2:w-[64%] sm:w-[73%] md:w-[38%] md3:w-[33%] md2:w-[28%] lg:w-[31%] lg2::w-[27%] xl:w-[31%] xl2:w-[27%] flex flex-row  justify-center items-center">
+                       <div class="flex flex-row items-center gap-x-1 md:gap-x-1 xl:gap-x-2">
+                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="
+                           w-[17%] md:w-[16%] md2:w-[18%] lg:w-2/5 lg2:w-1/6 ">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 9v.906a2.25 2.25 0 0 1-1.183 1.981l-6.478 3.488M2.25 9v.906a2.25 2.25 0 0 0 1.183 1.981l6.478 3.488m8.839 2.51-4.66-2.51m0 0-1.023-.55a2.25 2.25 0 0 0-2.134 0l-1.022.55m0 0-4.661 2.51m16.5 1.615a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.844a2.25 2.25 0 0 1 1.183-1.981l7.5-4.039a2.25 2.25 0 0 1 2.134 0l7.5 4.039a2.25 2.25 0 0 1 1.183 1.98V19.5Z" />
+                             </svg>
+                             
+                             
+                           <h1 class="text-2xl lg:text-3xl">:</h1>                                    
+                           <h1 class="text-base sm:text-lg md:text-sm lg:text-base xl:text-lg font-Dana-DemiBold mt-2">Example@example.com</h1>
+                       </div>
+                         
+                   </div>
+               </div>
+               <!-- Row 3 -->
+                <div>
+                   <h2 class="text-sm sm:text-lg md:text-balance lg:text-lg font-Dana-Medium">لورم ایپسوم متن ساختگی با تولید سادگی 
+                       نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون 
+                       و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز 
+                       و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h2>
+                </div>
+           </div>
+       </div>
+    </section>
+ </main>
+
+ <!-- تماس با ما -->
+ <section id="تماس با ما" class="w-[86%] mt-32 flex flex-col md:flex-row items-center md:justify-center md:gap-x-56 mx-auto  ">
+    <!-- Col 1 -->
+    <div class="flex flex-col-reverse space-y-5 -m-10  items-center w-3/4 md:w-[28%] lg:w-1/4">
+        <!-- Png -->
+        <div class="w-4/5 mt-7">
+            <img src="images/Contact us/vecteezy_charming-3d-burglar-girl-endearing-and-captivating-character_22483828.png"
+            class="" alt="">
+        </div>
+        <!-- Form -->
+        <div class="  py-4 px-2 flex flex-col md:-mt-40 space-y-3 bg-slate-800 border-2 border-yellow-300 rounded-2xl text-white">
+
+            <!-- Part 1 -->
+            <div class="flex flex-col items-start text-lg  space-y-3   font-Dana-DemiBold tracking-tight ">
+                <h2>ایمیل : Example@example.com</h2>
+                <hr class="w-11/12 mx-auto rounded-b-full h-3 rounded-full">
+                <h2>شماره کاری : 555-555-555</h2>
+                <hr class="w-11/12 mx-auto rounded-b-full h-3 rounded-full">
+                <h2>ساعات کاری : 9 صبح تا پنج ظهر</h2>
+    
+            </div>
+            <hr class="mx-auto w-[88%] rounded-full h-[6px]  bg-yellow-200">
+            <!-- Part 2 -->
+            <div class="flex flex-row  items-center gap-x-6 sm:gap-x-8 md:gap-x-3 xl:gap-x-6 border-t-2 border-b-2 py-5 px-1 rounded-2xl border-yellow-300 ">
+                <!-- github -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/BackGround Image/Pngs/icons8-github-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- x -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-circled-x-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- Yt -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-youtube-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- Reddit -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-reddit-48.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- DC -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-discord-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- IG -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-ig-48.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+            </div>
+    
+        </div>
+    </div>
+    <!-- Col 2 -->
+    <div class="w-5/6 mx-auto mt-16 md:mt-0 md:mx-0 md:w-1/2 bg-transparent border-r-4  space-y-3 border-yellow-400 py-3 px-2  flex flex-col justify-center items-center p-4 rounded-2xl">
+        <h2 class="text-yellow-300 w-11/12  py-5 border-l-4 border-t-4 rounded-6xl border-yellow-500 text-center tracking-tight text-2xl mb-2">تماس با ما</h2>
+        <form class="w-[90%] shadow-xl px-4 py-4 border-yellow-400 border-t-4  shadow-yellow-300 rounded-xl  bg-transparent bg-opacity-90 backdrop-blur-3xl space-y-4">
+            <div>
+                <label class="block text-white mb-1" for="name">نام:</label>
+                <input class="w-full p-2 rounded-md" type="text" id="name" placeholder="نام خود را وارد کنید">
+            </div>
+            <div>
+                <label class="block text-white mb-1" for="email">ایمیل:</label>
+                <input class="w-full p-2 rounded-md" type="email" id="email" placeholder="ایمیل خود را وارد کنید">
+            </div>
+            <div>
+                <label class="block text-white mb-1" for="message">پیام:</label>
+                <textarea class="w-full p-2 rounded-md" id="message" rows="4" placeholder="پیام خود را بنویسید"></textarea>
+            </div>
+            <button class="w-full bg-yellow-300 text-black py-2 font-Dana-Medium   hover:text-white rounded-md hover:bg-yellow-600 transition-all duration-500 *:
+            ">ارسال</button>
+        </form>
+    </div>
+ </section>
+
+
+ <footer class=" w-full rounded-t-full flex flex-col  bg-Primary_color bg-opacity-10 shadow-inner shadow-yellow-300 mt-20 lg:pt-12 xl:pt-3 lg:pr-14 xl:pr-8 " >
+    <div class="flex flex-col lg:flex-row justify-center lg:gap-x-6 xl:gap-x-20 items-center py-5 px-4">
+        <!-- لینک های سریع -->
+        <div class="flex  flex-row lg:flex-col mt-24 lg:mt-0 py-3 lg:py-1  xl:py-3  mr-4 text-yellow-100 tracking-tight text-base gap-x-4 lg:gap-x-0 sm:text-lg lg:text-base xl:text-lg font-Dana-Medium 
+        lg:space-y-5 justify-start border-t-2 border-t-yellow-300  lg:border-t-0 lg:border-r-2 lg:border-r-yellow-300 rounded-3xl px-4 ">
+            <a href="#خانه" class="transition-all hover:scale-105 hover:text-yellow-300 duration-200">خانه</a>
+            <a href="#خدمات" class="transition-all hover:scale-105 hover:text-yellow-300 duration-200">خدمات</a>
+            <a href="#نمونه کارها" class="transition-all hover:scale-105 hover:text-yellow-300 duration-200">نمونه کارها</a>
+            <a href="#درباره ما" class="transition-all hover:scale-105 hover:text-yellow-300 duration-200">درباره ما</a>
+            <a href="#تماس با ما" class="transition-all hover:scale-105 hover:text-yellow-300 duration-200">تماس با  ما</a>
+        </div>
+        <!-- gmail & social media -->
+         <div class="  flex flex-col space-y-5 items-center py-5 lg:py-3 xl:py-5   border-b-2 border-b-yellow-300 rounded-3xl mb-16">
+            <h1 class="text-yellow-300 text-lg lg:text-base xl:text-lg font-Dana-DemiBold text-center">همراه ما  باشید</h1>
+            <!-- Gmail -->
+             <div class="flex flex-row gap-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7 text-white">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z" />
+                  </svg>
+                <h1 class="text-lg lg:text-base xl:text-lg text-yellow-100"> : example@example.com</h1>                  
+             </div>
+             <!-- Social media -->
+             <div class="flex flex-row w-3/5 justify-center gap-x-3 lg:gap-x-2 xl:gap-x-3">
+                <!-- github -->
+                <a href="#" class="transition-all duration-300 hover:scale-105 "><img src="images/BackGround Image/Pngs/icons8-github-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- x -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-circled-x-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- Yt -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-youtube-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- Reddit -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-reddit-48.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- DC -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-discord-50.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+                <!-- IG -->
+                <a href="#" class="transition-all duration-300 hover:scale-105"><img src="images/Contact us/icons8-ig-48.png"
+                    class="bg-yellow-100 rounded-6xl" alt=""></a>
+
+             </div>
+         </div>
+         <!-- Right -->
+          <div class="text-center space-x-2 py-2 px-8 text-lg lg:text-base xl:text-lg text-yellow-300 font-Dana-Light border-r-2 border-yellow-300 rounded-2xl">
+            <h1>Copyright © 2024</h1>
+            <h2>تمامی حقوق تیم نتورکرز محفوظ است</h2>
+          </div>
+    </div> 
+    <div>
+
+    </div>
+ </footer>
+
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+<script src="js/main.js"></script>
+</body>
+</html>
+<!-- stop it -->
+ <!-- Im not fucking dumb -->
